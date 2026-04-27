@@ -285,7 +285,7 @@ body {
     justify-content: center;
     text-align: center;
     background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), 
-                url('asset/asset/image/DJI_20251224181614_0124_D.JPG');
+                url('asset.image/image/DJI_20251224181614_0124_D.JPG');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
