@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com;">
+    
+    <title>Ibnu Haidir Januardi | Portfolio</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+        <div id="preloader">
+            <div class="logo-loader">i</div>
+            <div class="loader-bar"></div>
+                <p>Memuat...</p>
+        </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand-group">
+                <a href="#" class="logo">IbnuHaidir</a>
+                <button id="theme-toggle">
+                    <span id="theme-icon">🌙</span>
+                </button>
+            </div>
+
+            <div class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang Saya</a></li>
+                <li><a href="#education">Pendidikan</a></li>
+                <li><a href="#experience">Pengalaman</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <header id="home" class="hero"> <!-- Beranda awal -->
+            <div class="hero-content">
+                <h1>Ibnu Haidir. J</h1>
+                <p>Saya adalah seorang <span id="typewriter"></span><span class="cursor">|</span></p>
+            </div>
+        </header>
+
+        <section id="home" class="media-slot reveal">
+            <h2>Featured Media</h2>
+            <div class="video-grid-container">
+                <div class="video-item">
+                    <video src="asset/image/asset/video/DJI_20251116180753_0091_D.MP4" autoplay loop muted playsinline></video>
+                    <p class="video-caption">Cinematic Shot 1</p>
+                </div>
+                <div class="video-item">
+                    <video src="asset/image/asset/video/DJI_20251116180834_0092_D.MP4" autoplay loop muted playsinline></video>
+                    <p class="video-caption">Cinematic Shot 2</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="portfolio-grid"> <!-- Riwayat diri baik cv atau penjelasan singkat -->
+            
+            <div class="card reveal card-portrait" onclick="focusWork(this, 'Cinematic Drone Shot')">
+                <div class="card-image-wrapper skeleton">
+                    <img src="asset/image/1777010534774.png" alt="Proyek 4" onload="removeSkeleton(this)">
+                    <div class="focus-overlay">
+                        <span class="focus-title">Me</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Ibnu Haidir Januardi</h3>
+                    <p>Pribadi yang tekun,teliti,bertanggung jawab,dapat diandalkan,serta mampu bekerja secara individu maupun kelompok</p>
+                </div>
+            </div>
+
+            <div class="card reveal" onclick="focusWork(this, 'Cinematic Landscape')">
+                <div class="card-image-wrapper skeleton">
+                    <img src="asset/image/DJI_20251116180601_0086_D.JPG" alt="Proyek 2" onload="removeSkeleton(this)">
+                    <div class="focus-overlay">
+                        <span class="focus-title">Mountain Sunset</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Hasil Kerja 2</h3>
+                    <p>Eksplorasi komposisi cinematic landscape.</p>
+                </div>
+            </div>
+
+            <div class="card reveal" onclick="focusWork(this, 'Professional Mapping')">
+                <div class="card-image-wrapper skeleton">
+                    <img src="asset/image/DJI_20251224181722_0127_D.JPG" alt="Proyek 3" onload="removeSkeleton(this)">
+                    <div class="focus-overlay">
+                        <span class="focus-title">Golden Hour</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Hasil Kerja 3</h3>
+                    <p>Dokumentasi profesional proyek infrastruktur.</p>
+                </div>
+            </div>
+
+         <section id="education" class="cv-section reveal"> <!-- taro riwayat pendidikan-->
+            <div class="cv-card">
+                <i class="fas fa-file-pdf"></i>
+                <h3>Curriculum Vitae</h3>
+                <p>Unduh atau lihat riwayat pengalaman kerja saya secara lengkap.</p>
+                <a href="document/Cv Ibnu_Haidir_Januardi.pdf" class="btn-cv" target="_blank">
+                    <i class="fas fa-download"></i> Download CV
+                </a>
+            </div>
+        </section>
+
+        <section id="education" class="cv-section reveal"> <!-- taro riwayat pendidikan-->
+            <div class="cv-card">
+                <i class="fas fa-file-pdf"></i>
+                <h3>Curriculum Vitae</h3>
+                <p>Unduh atau lihat riwayat pengalaman kerja saya secara lengkap.</p>
+                <a href="document/Cv Ibnu_Haidir_Januardi.pdf" class="btn-cv" target="_blank">
+                    <i class="fas fa-download"></i> Download CV
+                </a>
+            </div>
+        </section>
+
+         <section id="experience" class="media-slot reveal"> <!-- pegalaman bekerja-->
+            <div class="card reveal" onclick="focusWork(this, 'Fotografi Udara DJI')">
+                <div class="card-image-wrapper skeleton">
+                    <img src="asset/image/IMG-20240410-WA0011.jpg" alt="Proyek 1" onload="removeSkeleton(this)">
+                    <div class="focus-overlay">
+                        <span class="focus-title">J&T Memory</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Pengalaman Bekerja di J&T selama 3 tahun </h3>
+                    <p>Bekerja sejak 20-08-2023 - 30-11-2025 sebagai freelance</p>
+                </div>
+            </div>
+
+            <div class="card reveal" onclick="focusWork(this, 'Fotografi Udara DJI')">
+                <div class="card-image-wrapper skeleton">
+                    <img src="asset/image/IMG-20240410-WA0011.jpg" alt="Proyek 1" onload="removeSkeleton(this)">
+                    <div class="focus-overlay">
+                        <span class="focus-title">J&T Memory</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Pengalaman Bekerja di J&T selama 3 tahun </h3>
+                    <p>Bekerja sejak 20-08-2023 - 30-11-2025 sebagai freelance</p>
+                </div>
+            </div>
+
+
+        <section id="contact"></section> <!--Tambahkan Kontak-->
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Ibnu Haidir Januardi. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="https://instagram.com/benuuuf" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://twitter.com/asjf" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://linkedin.com/in/askfn" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://wa.me/6281319226930" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
