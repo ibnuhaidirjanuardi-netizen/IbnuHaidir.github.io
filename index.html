@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com;">
-    
     <title>Ibnu Haidir Januardi | Portfolio</title>
     <link rel="icon" type="image/png" href="favicon.png">
     
@@ -13,11 +11,11 @@
 </head>
 <body>
 
-        <div id="preloader">
-            <div class="logo-loader">i</div>
-            <div class="loader-bar"></div>
-                <p>Memuat...</p>
-        </div>
+    <div id="preloader">
+        <div class="logo-loader">i</div>
+        <div class="loader-bar"></div>
+        <p>Memuat...</p>
+    </div>
 
     <nav class="navbar">
         <div class="nav-container">
@@ -39,125 +37,169 @@
                 <li><a href="#about">Tentang Saya</a></li>
                 <li><a href="#education">Pendidikan</a></li>
                 <li><a href="#experience">Pengalaman</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
+                <li><a href="#gallery">Galeri</a></li> <li><a href="#contact">Kontak</a></li> </ul>
         </div>
     </nav>
 
     <main>
-        <header id="home" class="hero"> <!-- Beranda awal -->
+        <header id="home" class="hero"> 
             <div class="hero-content">
                 <h1>Ibnu Haidir. J</h1>
                 <p>Saya adalah seorang <span id="typewriter"></span><span class="cursor">|</span></p>
             </div>
         </header>
 
-        <section id="home" class="media-slot reveal">
-            <h2>Featured Media</h2>
-            <div class="video-grid-container">
-                <div class="video-item">
-                    <video src="asset video/video/DJI_20251116180753_0091_D.mp4" autoplay loop muted playsinline></video>
-                    <p class="video-caption">Cinematic Shot 1</p>
-                </div>
-                <div class="video-item">
-                    <video src="asset video/video/DJI_20251116180834_0092_D.mp4" autoplay loop muted playsinline></video>
-                    <p class="video-caption">Cinematic Shot 2</p>
+        <section id="about" class="media-slot reveal">
+            <h2>Tentang Saya</h2>
+            <div style="max-width: 800px; margin: 0 auto 40px; text-align: justify;">
+                <p>Saya merupakan Lulusan SMA Negeri 1 Tamansari dengan jurusan Ilmu Pengetahuan Sosial dan lulus tahun 2023. Memiliki pengalaman Bekerja sebagai Store Crew Magang, Freelance J&T Express sebagai jasa pengiriman , dan Helper UMKM Produk Sabun sebagai bagian Produksi dan Distributor terhadap konsumen atau pembeli. dan memiliki rekam jejak dalam menjaga standar kepuasan pelanggan melalui kedisiplinan, ketelitian, kemampuan adaptasi yang cepat di berbagai lingkungan kerja, memiliki kemauan dan giat yang tinggi dalam mempelajari Ilmu atau hal baru terkait pekerjaan, dan mampu bekerja dibawah tekanan dan waktu serta mampu menyesuaikan dengan berbagai kebijakan perusahaan untuk bisa berkontribusi dan menaikan value diri saya.</p>
+            </div>
+
+            <div class="portfolio-grid" style="max-width: 500px; margin: 0 auto;">
+                <div class="card popup-trigger" data-type="pdf" data-src="document/Portofolio_Ibnu_Haidir.pdf" data-title="Slide Resume & Portofolio Lengkap" data-desc="Gunakan panel interaktif bawaan jika Anda ingin membaca dokumen PDF resmi Ibnu Haidir Januardi secara utuh.">
+                    <div class="card-image-wrapper skeleton">
+                        <img src="asset.image/image/Gemini_Generated_Image_if2hzmif2hzmif2h.png" alt="Resume CV Ibnu" onload="removeSkeleton(this)">
+                        <div class="focus-overlay"><span class="focus-title"><i class="fa-solid fa-expand"></i> Buka Slide Portofolio</span></div>
+                    </div>
+                    <div class="card-info">
+                        <h3><i class="fa-solid fa-file-pdf" style="color: var(--brand-orange); margin-right: 6px;"></i> Full Resume & CV (PDF)</h3>
+                        <p>Dokumentasi resmi kompetensi, kualifikasi silat, dan riwayat operasional kerja.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="portfolio-grid"> <!-- Riwayat diri baik cv atau penjelasan singkat -->
+        <section id="education" class="media-slot reveal"> 
+            <h2>Pendidikan & Prestasi</h2>
+            <p style="text-align: center; margin-bottom: 30px; opacity: 0.8;">Riwayat instansi pendidikan dan pencapaian akademik & non-akademik.</p>
             
-            <div class="card reveal card-portrait" onclick="focusWork(this, 'Cinematic Drone Shot')">
-                <div class="card-image-wrapper skeleton">
-                    <img src="asset.image/image/1777010534774.png" alt="Proyek 4" onload="removeSkeleton(this)">
-                    <div class="focus-overlay">
-                        <span class="focus-title">Me</span>
+            <div class="portfolio-grid" style="max-width: 600px; margin: 0 auto;">
+                <a href="education.html" target="_blank" class="card" style="text-decoration: none; color: inherit; display: block;">
+                    <div class="card-image-wrapper skeleton">
+                        <img src="asset.image/image/Gemini_Generated_Image_f5a97df5a97df5a9 (1).png" alt="SMAN 1 Tamansari" onload="removeSkeleton(this)">
+                        <div class="focus-overlay"><span class="focus-title"><i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Galeri Sekolah</span></div>
                     </div>
-                </div>
-                <div class="card-info">
-                    <h3>Ibnu Haidir Januardi</h3>
-                    <p>Pribadi yang tekun,teliti,bertanggung jawab,dapat diandalkan,serta mampu bekerja secara individu maupun kelompok</p>
-                </div>
-            </div>
-
-            <div class="card reveal" onclick="focusWork(this, 'Cinematic Landscape')">
-                <div class="card-image-wrapper skeleton">
-                    <img src="asset.image/image/DJI_20251116180601_0086_D.JPG" alt="Proyek 2" onload="removeSkeleton(this)">
-                    <div class="focus-overlay">
-                        <span class="focus-title">Mountain Sunset</span>
+                    <div class="card-info" style="text-align: center;">
+                        <h3>SMAN 1 Tamansari</h3>
+                        <p style="margin-bottom: 10px;"><strong>Jurusan:</strong> Ilmu Pengetahuan Sosial (Lulus 2023) | <strong>Nilai Ujian:</strong> 88.53</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8; text-align: justify;">
+                            Merupakan tempat saya menempuh pendidikan menengah atas sekaligus mengukir berbagai prestasi akademik dan non-akademik, seperti Juara 1 Pencak Silat D2AM Tingkat Provinsi. Klik di sini untuk melihat dokumentasi penuh, fasilitas sekolah, dan piagam penghargaan (10-15 Foto).
+                        </p>
+                        <span class="btn-cv" style="display: inline-block; margin-top: 15px; font-size: 0.85rem; padding: 8px 16px;">
+                            <i class="fas fa-images"></i> Lihat Album Kenangan Sekolah
+                        </span>
                     </div>
-                </div>
-                <div class="card-info">
-                    <h3>Hasil Kerja 2</h3>
-                    <p>Eksplorasi komposisi cinematic landscape.</p>
-                </div>
-            </div>
-
-            <div class="card reveal" onclick="focusWork(this, 'Professional Mapping')">
-                <div class="card-image-wrapper skeleton">
-                    <img src="asset.image/image/DJI_20251224181722_0127_D.JPG" alt="Proyek 3" onload="removeSkeleton(this)">
-                    <div class="focus-overlay">
-                        <span class="focus-title">Golden Hour</span>
-                    </div>
-                </div>
-                <div class="card-info">
-                    <h3>Hasil Kerja 3</h3>
-                    <p>Dokumentasi profesional proyek infrastruktur.</p>
-                </div>
-            </div>
-
-         <section id="education" class="cv-section reveal"> <!-- taro riwayat pendidikan-->
-            <div class="cv-card">
-                <i class="fas fa-file-pdf"></i>
-                <h3>Curriculum Vitae</h3>
-                <p>Unduh atau lihat riwayat pengalaman kerja saya secara lengkap.</p>
-                <a href="document/Cv Ibnu_Haidir_Januardi.pdf" class="btn-cv" target="_blank">
-                    <i class="fas fa-download"></i> Download CV
                 </a>
             </div>
         </section>
 
-        <section id="education" class="cv-section reveal"> <!-- taro riwayat pendidikan-->
-            <div class="cv-card">
-                <i class="fas fa-file-pdf"></i>
-                <h3>Curriculum Vitae</h3>
-                <p>Unduh atau lihat riwayat pengalaman kerja saya secara lengkap.</p>
-                <a href="document/Cv Ibnu_Haidir_Januardi.pdf" class="btn-cv" target="_blank">
-                    <i class="fas fa-download"></i> Download CV
-                </a>
+        <section id="experience" class="media-slot reveal"> 
+            <h2>Pengalaman Kerja</h2>
+            <div class="portfolio-grid" style="margin-top: 30px;">
+                <div class="card popup-trigger" data-type="image" data-src="asset.image/image/Warung_sembako.jpg" data-title="Magang Menjaga Toko Kebutuhan Pokok" data-desc="Mengelola dan melakukan penjualan langsung secara ramah, menangani pencatatan inventaris stok barang dagangan, serta konsisten menjaga kebersihan dan kerapihan area retail demi kenyamanan konsumen.">
+                    <div class="card-image-wrapper skeleton">
+                        <img src="asset.image/image/Warung_sembako.jpg" alt="Toko Sembako" onload="removeSkeleton(this)">
+                        <div class="focus-overlay"><span class="focus-title">Retail Service</span></div>
+                    </div>
+                    <div class="card-info">
+                        <h3>Magang Toko Sembako</h3>
+                        <p><strong>Periode:</strong> Juni 2023 - Agustus 2023</p>
+                        <p>Menangani operasional ritel, pengelolaan kasir bulanan, dan pelayanan pelanggan.</p>
+                    </div>
+                </div>
+
+                <div class="card popup-trigger" data-type="image" data-src="asset.image/image/IMG-20240410-WA0011.jpg" data-title="Freelance — J&T Express" data-desc="Mengemban tanggung jawab dalam operasional harian logistik, manajemen menyusun rute distribusi paket secara efisien hingga 95%, serta menjaga standar kepuasan kepuasan pelanggan secara optimal.">
+                    <div class="card-image-wrapper skeleton">
+                        <img src="asset.image/image/IMG-20240410-WA0011.jpg" alt="J&T Express Logistics" onload="removeSkeleton(this)">
+                        <div class="focus-overlay"><span class="focus-title">Logistics Management</span></div>
+                    </div>
+                    <div class="card-info">
+                        <h3>Freelance — J&T Express</h3>
+                        <p><strong>Periode:</strong> 2023 - 2026</p>
+                        <p>Mengatur alur rantai distribusi logistik paket berskala besar harian dengan ketepatan waktu tinggi.</p>
+                    </div>
+                </div>
+
+                <div class="card popup-trigger" data-type="image" data-src="asset.image/image/mentahan_helper_sabun.jpg" data-title="Helper Produksi UMKM Sabun" data-desc="Bergerak langsung dalam memproses pengolahan formula produk, menjaga sterilisasi wadah, pengemasan akhir yang rapi, serta mengatur alur distribusi supply chain produk ke tangan konsumen.">
+                    <div class="card-image-wrapper skeleton">
+                        <img src="asset.image/image/mentahan_helper_sabun.jpg" alt="Produksi Sabun" onload="removeSkeleton(this)">
+                        <div class="focus-overlay"><span class="focus-title">Quality Control</span></div>
+                    </div>
+                    <div class="card-info">
+                        <h3>Helper Produksi Sabun</h3>
+                        <p><strong>Periode:</strong> 2025 - 2026</p>
+                        <p>Melakukan Produksi sabun, melakukan kuality control, dan melakukan pengemasan serta pengiriman kepada pembeli.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-         <section id="experience" class="media-slot reveal"> <!-- pegalaman bekerja-->
-            <div class="card reveal" onclick="focusWork(this, 'Fotografi Udara DJI')">
-                <div class="card-image-wrapper skeleton">
-                    <img src="asset.image/image/IMG-20240410-WA0011.jpg" alt="Proyek 1" onload="removeSkeleton(this)">
-                    <div class="focus-overlay">
-                        <span class="focus-title">J&T Memory</span>
+        <section id="gallery" class="media-slot reveal" style="background: rgba(128,128,128,0.03); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);"> 
+            <h2>Galeri Karya Drone</h2>
+            <p style="margin-bottom: 40px; opacity: 0.8;">Kumpulan hasil dokumentasi visual sinematik dan pemetaan lanskap menggunakan drone profesional.</p>
+            
+            <div class="portfolio-grid">
+                
+                <div class="card popup-trigger" data-type="video" data-src="asset video/video/DJI_20251116180753_0091_D.mp4" data-title="Cinematic Shot 1" data-desc="Dokumentasi cinematic sunset menggunakan drone DJI dengan resolusi 4K.">
+                    <div class="card-image-wrapper">
+                        <video src="asset video/video/DJI_20251116180753_0091_D.mp4" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;"></video>
+                        <div class="focus-overlay"><span class="focus-title"><i class="fa-solid fa-play"></i> Putar Video</span></div>
+                    </div>
+                    <div class="card-info">
+                        <h3>Cinematic Shot 1</h3>
+                        <p>Dokumentasi udara lanskap sunset dramatis dengan resolusi tinggi.</p>
                     </div>
                 </div>
-                <div class="card-info">
-                    <h3>Pengalaman Bekerja di J&T selama 3 tahun </h3>
-                    <p>Bekerja sejak 20-08-2023 - 30-11-2025 sebagai freelance</p>
-                </div>
-            </div>
 
-            <div class="card reveal" onclick="focusWork(this, 'Fotografi Udara DJI')">
-                <div class="card-image-wrapper skeleton">
-                    <img src="asset.image/image/IMG-20240410-WA0011.jpg" alt="Proyek 1" onload="removeSkeleton(this)">
-                    <div class="focus-overlay">
-                        <span class="focus-title">J&T Memory</span>
+                <div class="card popup-trigger" data-type="video" data-src="asset video/video/DJI_20251116180834_0092_D.mp4" data-title="Cinematic Shot 2" data-desc="Dokumentasi landscape kelanjutan menggunakan drone DJI.">
+                    <div class="card-image-wrapper">
+                        <video src="asset video/video/DJI_20251116180834_0092_D.mp4" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;"></video>
+                        <div class="focus-overlay"><span class="focus-title"><i class="fa-solid fa-play"></i> Putar Video</span></div>
+                    </div>
+                    <div class="card-info">
+                        <h3>Cinematic Shot 2</h3>
+                        <p>Eksplorasi pergerakan kamera drone (camera movement) pada area perbukitan.</p>
                     </div>
                 </div>
-                <div class="card-info">
-                    <h3>Pengalaman Bekerja di J&T selama 3 tahun </h3>
-                    <p>Bekerja sejak 20-08-2023 - 30-11-2025 sebagai freelance</p>
+
+                <div class="card popup-trigger" data-type="image" data-src="asset.image/image/DJI_20251116180601_0086_D.JPG" data-title="Mountain Sunset" data-desc="Eksplorasi komposisi cinematic landscape saat golden hour di area pegunungan.">
+                    <div class="card-image-wrapper skeleton">
+                        <img src="asset.image/image/DJI_20251116180601_0086_D.JPG" alt="Mountain Sunset" onload="removeSkeleton(this)">
+                        <div class="focus-overlay"><span class="focus-title"><i class="fa-solid fa-camera"></i> Lihat Foto</span></div>
+                    </div>
+                    <div class="card-info">
+                        <h3>Mountain Sunset</h3>
+                        <p>Komposisi fotografi lanskap pegunungan pada kondisi pencahayaan rendah (golden hour).</p>
+                    </div>
                 </div>
+
+                <div class="card popup-trigger" data-type="image" data-src="asset.image/image/DJI_20251224181722_0127_D.JPG" data-title="Golden Hour" data-desc="Dokumentasi profesional pemetaan menggunakan drone (Mapping) dan proyek infrastruktur.">
+                    <div class="card-image-wrapper skeleton">
+                        <img src="asset.image/image/DJI_20251224181722_0127_D.JPG" alt="Golden Hour" onload="removeSkeleton(this)">
+                        <div class="focus-overlay"><span class="focus-title"><i class="fa-solid fa-camera"></i> Lihat Foto</span></div>
+                    </div>
+                    <div class="card-info">
+                        <h3>Golden Hour / Mapping</h3>
+                        <p>Pengambilan sudut pandang tegak lurus untuk keperluan analisis wilayah dan infrastruktur.</p>
+                    </div>
+                </div>
+
             </div>
+        </section>
 
-
-        <section id="contact"></section> <!--Tambahkan Kontak-->
+        <section id="contact" class="cv-section reveal">
+            <div class="cv-card" style="max-width: 600px;">
+                <i class="fas fa-envelope" style="font-size: 3.5rem; color: var(--brand-orange); margin-bottom: 20px;"></i>
+                <h3>Hubungi Saya</h3>
+                <p>Punya proyek, dokumentasi drone, atau peluang kerja sama? Hubungi saya langsung!</p>
+                <form action="https://formspree.io/f/xlgvddbo" method="POST" style="width: 100%; margin-top: 20px; display: flex; flex-direction: column; gap: 15px;">
+                    <input type="text" name="name" placeholder="Nama Anda" required style="padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color);">
+                    <input type="email" name="email" placeholder="Email Anda" required style="padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color);">
+                    <textarea name="message" rows="4" placeholder="Pesan Anda..." required style="padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); resize: none;"></textarea>
+                    <button type="submit" class="btn-cv" style="border: none; cursor: pointer; width: 100%;">Kirim Pesan</button>
+                </form>
+            </div>
+        </section> 
     </main>
 
     <footer>
@@ -171,6 +213,17 @@
             </div>
         </div>
     </footer>
+
+    <div id="custom-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="popup-close">&times;</span>
+            <div id="popup-media-container"></div>
+            <div class="popup-info">
+                <h3 id="popup-title"></h3>
+                <p id="popup-desc"></p>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
