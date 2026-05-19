@@ -1,9 +1,8 @@
 /**
- * IBNU H.J PORTFOLIO - FINAL STABLE SCRIPT
+ * IBNU H.J PORTFOLIO - SMART POP-UP UPGRADED SCRIPT JS
  */
 
 // --- 1. GLOBAL UTILITIES ---
-
 function removeSkeleton(img) {
     const wrapper = img.parentElement;
     if (wrapper) {
@@ -13,9 +12,20 @@ function removeSkeleton(img) {
 }
 
 // --- 2. INITIALIZATION ON DOM READY ---
-
 document.addEventListener("DOMContentLoaded", function() {
     
+    // --- PRELOADER REMOVAL ---
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
+        window.addEventListener("load", () => {
+            preloader.classList.add("preloader-finish");
+        });
+        // Safety timeout jika pemuatan asinkron memakan waktu terlalu lama
+        setTimeout(() => {
+            preloader.classList.add("preloader-finish");
+        }, 2500);
+    }
+
     // --- A. NAV & HAMBURGER LOGIC ---
     const hamburger = document.getElementById('hamburger-menu');
     const navMenu = document.getElementById('nav-menu');
@@ -27,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function() {
             navMenu.classList.toggle('active');
         });
 
-        // Tutup menu saat link diklik
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
@@ -44,14 +53,13 @@ document.addEventListener("DOMContentLoaded", function() {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
         if (scrollTop > lastScrollTop && scrollTop > 100) {
-            navbar.classList.add('navbar-hidden');
-            // Otomatis tutup menu lemari jika navbar sembunyi
+            if (navbar) navbar.classList.add('navbar-hidden');
             if (hamburger) {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
             }
         } else {
-            navbar.classList.remove('navbar-hidden');
+            if (navbar) navbar.classList.remove('navbar-hidden');
         }
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
@@ -107,34 +115,113 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // --- E. SCROLL REVEAL ---
-    const observer = new IntersectionObserver((entries) => {
+    const revealElements = document.querySelectorAll('.reveal');
+    const observerOptions = {
+        root: null,
+        threshold: 0.15
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('active');
+                entry.target.classList.add('reveal-active');
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, observerOptions);
 
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-});
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
 
-// --- 3. WINDOW LOAD (PRELOADER & SKELETON) ---
+    // --- F. PREMIUM POP-UP MODAL ENGINE ---
+    const popupOverlay = document.getElementById("custom-popup");
+    const popupClose = document.querySelector(".popup-close");
+    const mediaContainer = document.getElementById("popup-media-container");
+    const popupTitle = document.getElementById("popup-title");
+    const popupDesc = document.getElementById("popup-desc");
+    const triggers = document.querySelectorAll(".popup-trigger");
 
-window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
-    
-    if (preloader) {
-        setTimeout(() => {
-            preloader.classList.add('preloader-finish');
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 600);
-        }, 500);
+    function openPopupEngine(type, src, title, desc) {
+        if (!popupOverlay || !mediaContainer) return;
+
+        // Kosongkan wadah media lama
+        mediaContainer.innerHTML = "";
+
+        // Isi konten teks
+        if (popupTitle) popupTitle.textContent = title;
+        if (popupDesc) popupDesc.textContent = desc;
+
+        // Render Media berdasarkan tipe dokumen
+        if (type === "pdf") {
+            const iframe = document.createElement("iframe");
+            iframe.src = src;
+            iframe.className = "popup-pdf-frame";
+            mediaContainer.appendChild(iframe);
+        } 
+        else if (type === "video") {
+            const video = document.createElement("video");
+            video.src = src;
+            video.controls = true;
+            video.autoplay = true;
+            video.style.width = "100%";
+            mediaContainer.appendChild(video);
+        } 
+        else if (type === "image") {
+            const img = document.createElement("img");
+            img.src = src;
+            img.alt = title;
+            img.style.width = "100%";
+            mediaContainer.appendChild(img);
+        }
+
+        // Jalankan animasi kelas aktif
+        popupOverlay.classList.add("active");
+        document.body.style.overflow = "hidden"; // Kunci scroll halaman belakang
     }
 
-    // Skeleton check untuk gambar yang sudah masuk cache
-    document.querySelectorAll('.card-image-wrapper img').forEach(img => {
-        if (img.complete) removeSkeleton(img);
-        img.onload = () => removeSkeleton(img);
+    function closePopup() {
+        if (!popupOverlay) return;
+        popupOverlay.classList.remove("active");
+        document.body.style.overflow = ""; // Kembalikan scroll reguler
+        if (mediaContainer) mediaContainer.innerHTML = ""; // Matikan proses background media
+    }
+
+    // Pasangkan trigger dinamis ke elemen kelas '.popup-trigger'
+    triggers.forEach(trigger => {
+        trigger.addEventListener("click", function(e) {
+            // Mencegah loncatan tautan jika pemicunya elemen anchor
+            if (this.tagName === "A" || this.classList.contains("card") || this.classList.contains("cv-card")) {
+                e.preventDefault();
+            }
+            
+            const type = this.getAttribute("data-type");
+            const src = this.getAttribute("data-src");
+            const title = this.getAttribute("data-title");
+            const desc = this.getAttribute("data-desc");
+
+            if (type && src) {
+                openPopupEngine(type, src, title, desc);
+            }
+        });
+    });
+
+    // Event listener penutup pop-up modal
+    if (popupClose) {
+        popupClose.addEventListener("click", closePopup);
+    }
+    if (popupOverlay) {
+        popupOverlay.addEventListener("click", function(e) {
+            if (e.target === popupOverlay) {
+                closePopup();
+            }
+        });
+    }
+
+    // Dukungan tombol ESC di keyboard untuk menutup jendela pop-up
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape" && popupOverlay.classList.contains("active")) {
+            closePopup();
+        }
     });
 });
