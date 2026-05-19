@@ -4,39 +4,40 @@
 #preloader {
     position: fixed;
     inset: 0;
-    background-color: var(--bg-color); 
+    background-color: #121212;
     z-index: 100000;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* Menjaga jarak antar elemen (i, bar, dan teks) tepat 5px */
     gap: 5px; 
-    transition: opacity 0.6s ease;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.preloader-finish { 
+    opacity: 0; 
+    visibility: hidden; 
+    pointer-events: none; 
 }
 
 .logo-loader {
     font-size: 5rem;
     font-weight: bold;
     color: var(--brand-orange);
-    /* line-height diatur ke 1 agar kotak pembungkus huruf 'i' 
-       presisi setinggi hurufnya, sehingga jarak 5px dihitung dengan benar */
     line-height: 1; 
     margin: 0;
     padding: 0;
     display: block;
-    /* Sedikit penyesuaian visual agar 'i' benar-benar di tengah */
     text-align: center;
 }
 
 .loader-bar {
     width: 120px;
-    height: 4px; /* Sedikit lebih tebal agar lebih jelas */
+    height: 4px;
     background: rgba(128, 128, 128, 0.2);
     border-radius: 10px;
     position: relative;
     overflow: hidden;
-    /* Memastikan tidak ada margin yang mengganggu gap */
     margin: 0; 
 }
 
@@ -52,19 +53,13 @@
 }
 
 #preloader p {
-    color: var(--text-color);
+    color: #ffffff;
     font-size: 0.75rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin: 0;
     opacity: 0.7;
     line-height: 1;
-}
-
-/* Animasi */
-@keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.05); opacity: 0.8; }
 }
 
 @keyframes loading-slide {
@@ -116,7 +111,7 @@ body {
 }
 
 /* =========================================
-   NAVBAR - FINAL STABLE VERSION
+   3. NAVBAR
    ========================================= */
 .navbar {
     background-color: var(--nav-bg);
@@ -137,7 +132,7 @@ body {
 
 .nav-container {
     display: flex !important;
-    flex-direction: row !important; /* Paksa satu baris, jangan biarkan menekuk */
+    flex-direction: row !important;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -148,8 +143,8 @@ body {
 .nav-brand-group {
     display: flex;
     align-items: center;
-    gap: 10px; /* Jarak antara logo i. dan tombol tema */
-    flex-shrink: 0; /* Jangan biarkan grup ini mengecil/terhimpit */
+    gap: 10px;
+    flex-shrink: 0;
 }
 
 .logo {
@@ -159,7 +154,6 @@ body {
     font-weight: bold;
 }
 
-/* --- THEME TOGGLE --- */
 #theme-toggle {
     background: transparent;
     border: 1px solid var(--border-color);
@@ -175,7 +169,7 @@ body {
 }
 
 /* =========================================
-   NAV LINKS (DESKTOP)
+   4. NAV LINKS (DESKTOP)
    ========================================= */
 .nav-links {
     display: flex;
@@ -195,52 +189,50 @@ body {
 }
 
 /* =========================================
-   HAMBURGER ICON
+   5. HAMBURGER ICON
    ========================================= */
 .hamburger {
-    display: none; /* Sembunyi di desktop */
+    display: none;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
     cursor: pointer;
     z-index: 2000;
 }
 
 .hamburger span {
     display: block;
-    width: 30px;
+    width: 25px;
     height: 2px;
     background-color: var(--text-color);
     transition: 0.3s;
 }
 
 /* =========================================
-   RESPONSIVE (MOBILE & TABLET)
+   6. RESPONSIVE (MOBILE & TABLET)
    ========================================= */
 @media (max-width: 853px) {
     .hamburger {
-        display: flex; /* Munculkan hamburger di kanan */
-        margin-left: auto; /* Memastikan hamburger terdorong ke paling kanan */
+        display: flex;
+        margin-left: auto;
     }
 
     .nav-links {
         position: fixed;
-        right: -100%; /* Sembunyi di luar layar kanan */
-        top: 61px; /* Sesuaikan dengan tinggi navbar kamu */
-        height: calc(100vh - 78vh); /* Tinggi layar dikurangi tinggi navbar */
-        width: 250px; /* Defaultnya ambil 70% lebar layar */       
-        background-color: var(--nav-bg); /* Gunakan warna nav-bg agar senada */
-        backdrop-filter: blur(12px); /* Memberikan efek blur transparan yang mewah */
+        right: -100%;
+        top: 61px;
+        height: calc(100vh - 61px);
+        width: 250px;       
+        background-color: var(--nav-bg);
+        backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-start; 
         align-items: center;
-        
-        padding-top: 0px; /* Jarak menu pertama dari navbar */
+        padding-top: 30px;
         gap: 15px;
-        
         transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 999; /* Di bawah navbar sedikit agar tidak tumpang tindih */
+        z-index: 999;
         overflow-y: auto;
     }
 
@@ -253,30 +245,22 @@ body {
         width: 100%;
         text-align: center;
         padding: 12px 0;
-        border-bottom: 1px solid rgba(128, 128, 128, 0.1); /* Garis pemisah antar menu */
+        border-bottom: 1px solid rgba(128, 128, 128, 0.1);
     }
 
-
-    .nav-links.active {
-        right: 0; /* Muncul saat aktif */
-        display: flex !important;
-    }
-
-    /* Animasi Hamburger ke X */
     .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
-/* Ukuran HP Kecil (412px ke bawah) */
+
 @media (max-width: 412px) {
-    .nav-container {
-        padding: 0 5px;
-    }
+    .nav-container { padding: 0 5px; }
     .logo { font-size: 1.2rem; }
     #theme-toggle { width: 34px; height: 34px; }
 }
+
 /* =========================================
-   4. HERO SECTION
+   7. HERO SECTION
    ========================================= */
 .hero {
     height: 100vh;
@@ -295,7 +279,7 @@ body {
 #typewriter { color: var(--brand-orange); }
 
 /* =========================================
-   5. VIDEO GRID
+   8. VIDEO GRID & CAPTION
    ========================================= */
 .media-slot { padding: 80px 5%; text-align: center; }
 
@@ -313,6 +297,7 @@ body {
     overflow: hidden;
     border: 1px solid var(--border-color);
     transition: transform 0.3s;
+    cursor: pointer;
 }
 
 .video-item:hover {
@@ -327,14 +312,24 @@ body {
     display: block;
 }
 
+.video-caption {
+    padding: 10px;
+    font-size: 0.9rem;
+    color: #fff;
+    background: rgba(0,0,0,0.6);
+    margin: 0;
+}
+
 /* =========================================
-   6. PORTFOLIO & HOVER EFFECT
+   9. PORTFOLIO GRID & HOVER EFFECT
    ========================================= */
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    padding: 40px 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
 .card {
@@ -366,7 +361,6 @@ body {
     transition: transform 0.5s;
 }
 
-/* Hover Title Overlay */
 .focus-overlay {
     position: absolute;
     inset: 0;
@@ -391,10 +385,12 @@ body {
 .card:hover .focus-overlay { opacity: 1; }
 .card:hover .focus-title { transform: translateY(0); }
 
-.card-info { padding: 20px; }
+.card-info { padding: 20px; text-align: left; }
+.card-info h3 { margin-bottom: 5px; }
+.card-info p { font-size: 0.9rem; opacity: 0.8; }
 
 /* =========================================
-   7. CV SECTION
+   10. CV SECTION & BUTTONS
    ========================================= */
 .cv-section {
     padding: 80px 10%;
@@ -415,12 +411,6 @@ body {
     text-align: center;
 }
 
-.cv-card i.fa-file-pdf {
-    font-size: 3.5rem;
-    color: var(--brand-orange);
-    margin-bottom: 20px;
-}
-
 .btn-cv {
     display: inline-flex;
     align-items: center;
@@ -433,7 +423,7 @@ body {
     border-radius: 30px;
     font-weight: 600;
     font-size: 0.95rem;
-    width: fit-content; /* Mencegah tombol membesar sendiri */
+    width: fit-content;
     margin-top: 20px;
     transition: all 0.3s ease;
 }
@@ -444,25 +434,8 @@ body {
 }
 
 /* =========================================
-   8. PRELOADER & SKELETON
+   11. SKELETON EFFECT
    ========================================= */
-#preloader {
-    position: fixed;
-    inset: 0;
-    background: #121212;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.6s ease;
-}
-
-.preloader-finish { 
-    opacity: 0; 
-    visibility: hidden; 
-    pointer-events: none; 
-}
-
 .skeleton::after {
     content: "";
     position: absolute;
@@ -473,7 +446,7 @@ body {
 @keyframes shimmer { 100% { transform: translateX(100%); } }
 
 /* =========================================
-   9. FOOTER & SOSMED
+   12. FOOTER & SOSMED
    ========================================= */
 footer {
     padding: 50px 10%;
@@ -500,11 +473,123 @@ footer {
     transform: translateY(-5px);
 }
 
-/* Font Awesome X-Twitter Tuning */
-.fa-x-twitter { font-size: 0.95em; }
-
-/* Responsive */
 @media (max-width: 768px) {
-    .nav-container { flex-direction: column; gap: 15px; }
     .video-grid-container { grid-template-columns: 1fr; }
+}
+
+/* =========================================
+   13. PREMIUM POP-UP MODAL (WISEPOPS STYLE)
+   ========================================= */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 20px;
+}
+
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 700px;
+    border-radius: 16px;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    transform: scale(0.85);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-overlay.active .popup-content {
+    transform: scale(1);
+}
+
+.popup-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.6;
+    transition: opacity 0.2s, color 0.2s;
+}
+.popup-close:hover {
+    opacity: 1;
+    color: var(--brand-orange);
+}
+
+#popup-media-container {
+    width: 100%;
+    background: #000000;
+    line-height: 0;
+    overflow: hidden;
+}
+
+#popup-media-container img, 
+#popup-media-container video {
+    width: 100%;
+    height: auto;
+    max-height: 50vh;
+    object-fit: contain;
+    display: block;
+}
+
+.popup-pdf-frame {
+    width: 100%;
+    height: 55vh;
+    border: none;
+    background-color: #121212;
+    display: block;
+}
+
+.popup-info {
+    padding: 30px;
+    text-align: center;
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+
+.popup-info h3 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: var(--brand-orange);
+    font-weight: 700;
+}
+
+.popup-info p {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+/* =========================================
+   14. SCROLL REVEAL STYLES
+   ========================================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
 }
